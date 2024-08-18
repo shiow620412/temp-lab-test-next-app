@@ -1,6 +1,13 @@
 import Image from "next/image";
+import { TempoDevtools } from "tempo-devtools";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_TEMPO) {
+      TempoDevtools.init();
+    }
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
